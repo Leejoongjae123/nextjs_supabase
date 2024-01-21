@@ -53,8 +53,8 @@ export default function Login({
   };
 
   return (
-    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
-      <Link
+    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 ">
+      {/* <Link
         href="/"
         className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
       >
@@ -73,13 +73,13 @@ export default function Login({
           <polyline points="15 18 9 12 15 6" />
         </svg>{" "}
         Back
-      </Link>
+      </Link> */}
 
       <form
         className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
         action={signIn}
       >
-        <label className="text-md" htmlFor="email">
+        <label className="text-md text-white" htmlFor="email">
           Email
         </label>
         <input
@@ -88,7 +88,7 @@ export default function Login({
           placeholder="you@example.com"
           required
         />
-        <label className="text-md" htmlFor="password">
+        <label className="text-md text-white" htmlFor="password">
           Password
         </label>
         <input
@@ -103,7 +103,7 @@ export default function Login({
         </button>
         <button
           formAction={signUp}
-          className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
+          className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2 bg-white"
         >
           Sign Up
         </button>
