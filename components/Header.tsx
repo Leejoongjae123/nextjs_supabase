@@ -21,6 +21,7 @@ export default function Header() {
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value);
   };
+  
 
   const router = useRouter();
 
@@ -63,7 +64,9 @@ export default function Header() {
 
         <Button
         onClick={()=>{
+          
           router.push('/search')
+          
         }}
         >검색</Button>
       </div>

@@ -6,14 +6,19 @@ import { redirect } from "next/navigation";
 import { Button } from "@mui/material";
 import Ask from "@/components/Ask";
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 export default function Search({
   searchParams,
 }: {
   searchParams: { message: string };
 }) {
-
+  
   const router = useRouter();
+
+  const fetchReward=()=>{
+    console.log(1234)
+  }
   return (
     <div className="flex-1 flex flex-col w-full justify-center items-center text-white space-y-5">
       <div>
