@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      textColor: {
+        customPink: 'rgb(255, 0, 155)',
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
