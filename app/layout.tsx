@@ -6,6 +6,7 @@ import SignUpUserSteps from "@/components/SignUpUserSteps";
 import { createClient } from "@/utils/supabase/server";
 import AuthButton from "../components/AuthButton";
 import Link from "next/link";
+import { Button } from "@mui/material";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -34,13 +35,14 @@ export default function RootLayout({
       return false;
     }
   };
+  const customPink = "rgb(255, 0, 155)";
 
   const isSupabaseConnected = canInitSupabaseClient();
   return (
     <html lang="en" className={GeistSans.className}>
-      <body className="bg-background text-foreground">
+      <body className="">
         <main className="min-h-screen flex flex-col items-center bg-black">
-          <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16 text-white">
+          <nav className="w-full flex justify-center  h-16 text-white">
             <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
               <Link href="/"><div className="text-3xl font-bold">은퇴학개론</div></Link>
               

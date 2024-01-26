@@ -9,14 +9,14 @@ module.exports = {
       textColor: {
         customPink: 'rgb(255, 0, 155)',
       },
-      colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        btn: {
-          background: "hsl(var(--btn-background))",
-          "background-hover": "hsl(var(--btn-background-hover))",
-        },
-      },
+      // colors: {
+      //   background: "hsl(var(--background))",
+      //   foreground: "hsl(var(--foreground))",
+      //   btn: {
+      //     background: "hsl(var(--btn-background))",
+      //     "background-hover": "hsl(var(--btn-background-hover))",
+      //   },
+      // },
     },
   },
   plugins: [],

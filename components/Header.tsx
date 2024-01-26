@@ -50,15 +50,15 @@ export default function Header() {
   return (
     <div className="flex flex-col gap-2 items-center">
       <ThemeProvider theme={theme}>
-        <h1 className="text-5xl font-extrabold text-custompink text-center mt-20 text-customPink">
+        <h1 className="text-5xl font-extrabold text-custompink text-center mt-20 mb-8 text-customPink">
           Boost Your Trading
         </h1>
-        <p className="max-w-2xl m-auto text-xl text-zinc-200 sm:text-center sm:text-2xl">
+        <p className="m-auto text-xl text-zinc-200 sm:text-center sm:text-2xl">
           트레이딩의 날개를 달아줄 부스터<br></br>당연히{" "}
           <strong>거래수수료</strong>는 돌려받아야죠
         </p>
 
-        <div className="flex my-10 justify-center items-center rounded-lg p-0.5 space-x-4 ">
+        <div className="flex my-10 justify-center items-center rounded-lg ">
           <div>
             <FormControl sx={{ m: 1, minWidth: 120 }}>
               <InputLabel id="demo-simple-select-helper-label">
@@ -134,11 +134,15 @@ export default function Header() {
           있습니다.
         </div>
 
-        <div className="flex self-center mt-6  p-0.5 ">월 구독제 유료 지표</div>
-        <div className="flex self-center mt-6  p-0.5 ">
+        <div className="flex text-customPink text-5xl font-bold mt-20 self-center p-0.5 ">
+          월 구독제 유료 지표
+        </div>
+        <div className="flex text-5xl font-bold self-center mt-6  p-0.5 ">
           마스터시그널 / 블록쉬프트는 별도 문의
         </div>
+        <div className="h-[200px]"></div>
         <Ask></Ask>
+
       </ThemeProvider>
     </div>
   );
