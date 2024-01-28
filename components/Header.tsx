@@ -86,13 +86,21 @@ export default function Header() {
             />
           </div>
 
-          <Button
+          {/* <Button
             onClick={() => {
               router.push("/search");
             }}
           >
             검색
-          </Button>
+          </Button> */}
+          <button 
+          className="bg-[rgb(255,0,155)] text-white font-bold py-2 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg"
+          onClick={()=>{
+            router.push("/search")
+          }}
+          >
+            Click me
+          </button>
         </div>
         <div className="flex text-lg self-center p-0.5 ">
           레퍼럴 코드로 가입된 OKX 계정만 조회가 가능합니다.
@@ -123,7 +131,12 @@ export default function Header() {
 
         <div className="flex justify-center my-10">
           <Link href="https://www.youtube.com/watch?v=PGjkxG_RN5A&t=16s">
-            <Button>자동매매 설정가이드</Button>
+            {/* <Button>자동매매 설정가이드</Button> */}
+            <button 
+          className="bg-[rgb(255,0,155)] text-white font-bold py-2 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg"
+          >
+            자동매매 설정가이드
+          </button>
           </Link>
         </div>
         <div className="">
@@ -142,7 +155,6 @@ export default function Header() {
         </div>
         <div className="h-[200px]"></div>
         <Ask></Ask>
-
       </ThemeProvider>
     </div>
   );

@@ -14,7 +14,6 @@ import MenuItem from "@mui/material/MenuItem";
 import { Button } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 export default function Ask() {
   return (
     <div className="flex flex-col items-center">
@@ -23,9 +22,12 @@ export default function Ask() {
       </div>
       <div className="flex justify-center mt-10">
         <Link href={"https://open.kakao.com/o/sBQ7iSZe"}>
-          <Button>
+          {/* <Button>
             문의하기
-          </Button>
+          </Button> */}
+          <button className="bg-[rgb(255,0,155)] text-white font-bold py-2 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
+            문의하기
+          </button>
         </Link>
       </div>
     </div>
