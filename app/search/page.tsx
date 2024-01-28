@@ -49,12 +49,13 @@ export default async function Search({
     .select()
     .eq("email", user?.email);
 
-    if (update.data && update.data.length > 0) {
-      const okxuid = update.data[0].okxuid;
-      console.log("okxuid:", okxuid);
-    } else {
-      console.log("No data found or an error occurred");
-    }
+  const okxuid=""
+  if (update.data && update.data.length > 0) {
+    const okxuid = update.data[0].okxuid;
+    console.log("okxuid:", okxuid);
+  } else {
+    console.log("No data found or an error occurred");
+  }
 
   return (
     <div className="animate-in flex flex-col w-full justify-center items-center text-white space-y-5">
