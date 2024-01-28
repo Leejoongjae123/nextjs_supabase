@@ -24,7 +24,7 @@ export default function Login({
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
 
-    const register = await supabase.auth.signUp({
+    const register:any = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -32,7 +32,7 @@ export default function Login({
       },
     });
 
-    console.log("register:", register);
+    
     const myuid = register.data.user.id;
     console.log("myuid:", myuid);
 

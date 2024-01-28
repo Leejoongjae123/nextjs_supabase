@@ -44,19 +44,12 @@ export default async function Search({
     data: { user },
   } = await supabase.auth.getUser();
 
-  const update = await supabase
+  const update:any = await supabase
     .from("profiles")
     .select()
     .eq("email", user?.email);
 
-  
-  if (update.data && update.data.length > 0) {
-    const okxuid = update.data[0].okxuid;
-    console.log("okxuid:", okxuid);
-  } else {
-    const okxuid=""
-    console.log("No data found or an error occurred");
-  }
+  const okxuid = update?.data[0].okxuid;
 
   return (
     <div className="animate-in flex flex-col w-full justify-center items-center text-white space-y-5">
