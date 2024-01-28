@@ -75,7 +75,7 @@ export default function Search({
           지금 출금하기
         </button>
 
-        <div className="text-center text-xs">
+        <div className="text-center text-xs px-10 md:px-0 ">
           <p>출금은 100usdt 이상 부터 가능합니다.</p>
           <p>
             출금 신청 시, 조회된 금액을 기준으로 신청되며 1영업일 이내 UID로
