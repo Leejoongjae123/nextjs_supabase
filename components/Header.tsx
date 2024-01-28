@@ -148,7 +148,7 @@ export default function Header() {
         <div className="flex text-2xl md:text-5xl font-bold self-center mt-6  p-0.5 text-center">
           마스터시그널 / 블록쉬프트는 별도 문의
         </div>
-        <div className="h-[200px]"></div>
+        <div className="h-[100px] md:h-[200px]"></div>
         <Ask></Ask>
         
       </ThemeProvider>
