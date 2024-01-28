@@ -13,7 +13,8 @@ export default async function Index() {
     // This function is just for the interactive tutorial.
     // Feel free to remove it once you have Supabase connected.
     try {
-      createClient(cookieStore);
+      const result=createClient(cookieStore);
+      
       return true;
     } catch (e) {
       return false;
@@ -21,8 +22,10 @@ export default async function Index() {
   };
 
   const isSupabaseConnected = canInitSupabaseClient();
-
+  
   const customPink = "rgb(255, 0, 155)";
+
+  
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center bg-black text-white">

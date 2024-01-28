@@ -3,7 +3,6 @@ import { headers, cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
-
 export default function Login({
   searchParams,
 }: {
@@ -28,8 +27,6 @@ export default function Login({
 
     return redirect("/");
   };
-
-  
 
   const signUp = async (formData: FormData) => {
     "use server";
@@ -111,7 +108,7 @@ export default function Login({
           회원가입
         </button> */}
         <Link href="/signin"></Link>
-        
+
         {searchParams?.message && (
           <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
             {searchParams.message}
@@ -119,15 +116,12 @@ export default function Login({
         )}
       </form>
       <div className="w-full">
-      <Link href={'/signin'}>
-      <button
-          className="border border-foreground/20 rounded-md px-4 py-2 text-foreground w-full border-none text-customPink underline"
-        >
-          회원가입
-        </button>
+        <Link href={"/signup"}>
+          <button className="border border-foreground/20 rounded-md px-4 py-2 text-foreground w-full border-none text-customPink underline">
+            회원가입
+          </button>
         </Link>
       </div>
-      
     </div>
   );
 }

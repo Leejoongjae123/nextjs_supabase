@@ -42,10 +42,10 @@ function Cards() {
   return (
     <div className=" w-full h-50 bg-white">
       <Carousel autoSlide={true} autoSlideInterval={3000} datas={datas}>
-        {datas.map((elem) => {
+        {datas.map((elem,index) => {
           return (
             
-              <img src={elem.path} alt="image"></img>
+              <img key={index} src={elem.path} alt="image"></img>
             
           );
         })}

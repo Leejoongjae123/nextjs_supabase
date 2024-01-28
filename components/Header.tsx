@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import MenuItem from "@mui/material/MenuItem";
 import { Button } from "@mui/material";
 import Ask from "./Ask";
+import { redirect } from "next/navigation";
 
 // 사용자 지정 색상 정의
 const customPink = "rgb(255, 0, 155)";
@@ -90,6 +91,7 @@ export default function Header() {
               className="bg-[rgb(255,0,155)] text-white font-bold py-3.5 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg ml-2"
               onClick={() => {
                 router.push("/search");
+                // redirect('/search?uid={}')
               }}
             >
               검색

@@ -11,6 +11,7 @@ export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
           return cookieStore.get(name)?.value;
         },
         set(name: string, value: string, options: CookieOptions) {
+          
           try {
             cookieStore.set({ name, value, ...options });
           } catch (error) {

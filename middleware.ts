@@ -1,7 +1,12 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { createClient } from "@/utils/supabase/middleware";
 
+
+const isLoggedIn:boolean=false;
+
 export async function middleware(request: NextRequest) {
+  
+  
   try {
     // This `try/catch` block is only here for the interactive tutorial.
     // Feel free to remove once you have Supabase connected.
@@ -9,8 +14,11 @@ export async function middleware(request: NextRequest) {
 
     // Refresh session if expired - required for Server Components
     // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#managing-session-with-middleware
-    await supabase.auth.getSession();
-
+    const result=await supabase.auth.getSession();
+    if (result.data.session===null){
+      return NextResponse.redirect(new URL('/login',request.url))
+    }
+    
     return response;
   } catch (e) {
     // If you are here, a Supabase client could not be created!
@@ -22,6 +30,7 @@ export async function middleware(request: NextRequest) {
       },
     });
   }
+  
 }
 
 export const config = {
@@ -33,6 +42,6 @@ export const config = {
      * - favicon.ico (favicon file)
      * Feel free to modify this pattern to include more paths.
      */
-    "/((?!_next/static|_next/image|favicon.ico).*)",
+    "/search",
   ],
 };
