@@ -99,7 +99,7 @@ export default function Header() {
             router.push("/search")
           }}
           >
-            Click me
+            검색
           </button>
         </div>
         <div className="flex text-lg self-center p-0.5 ">
