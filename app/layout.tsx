@@ -44,7 +44,7 @@ export default function RootLayout({
         <main className="min-h-screen flex flex-col items-center bg-black">
           <nav className="w-full flex justify-center  h-16 text-white">
             <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
-              <Link href="/"><div className="text-3xl font-bold">은퇴학개론</div></Link>
+              <Link href="/"><div className="text-2xl md:text-3xl font-bold">은퇴학개론</div></Link>
               
               {isSupabaseConnected && <AuthButton />}
             </div>

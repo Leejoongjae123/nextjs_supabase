@@ -42,7 +42,8 @@ function Cards() {
     <div className=" w-full h-50 bg-white">
       <Carousel autoSlide={true} autoSlideInterval={3000}>
         {slides.map((elem) => {
-          return (<img src={elem.path} alt="image"></img>);
+          return <img src={elem.path} alt="image">
+          </img>;
         })}
       </Carousel>
     </div>
