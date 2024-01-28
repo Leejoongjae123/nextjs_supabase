@@ -6,6 +6,7 @@ export default function Carousel({
   children: slides,
   autoSlide = false,
   autoSlideInterval = 3000,
+  datas
 }) {
   const [curr, setCurr] = useState(0)
 
@@ -19,8 +20,10 @@ export default function Carousel({
     const slideInterval = setInterval(next, autoSlideInterval)
     return () => clearInterval(slideInterval)
   }, [])
+  console.log('datas',datas)
   return (
-    <div className="overflow-hidden relative">
+    
+    <div className="overflow-hidden relative filter grayscale hover:grayscale-0 transition duration-300 z-50">
       <div
         className="flex transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${curr * 100}%)` }}
@@ -50,7 +53,8 @@ export default function Carousel({
               transition-all w-3 h-3 bg-white rounded-full
               ${curr === i ? "p-2" : "bg-opacity-50"}
             `}
-            />
+            >
+            </div>
           ))}
         </div>
       </div>
