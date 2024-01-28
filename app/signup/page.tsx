@@ -7,7 +7,6 @@ import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import DropDown from "../../components/dropdown";
 
 export default function Login({
   searchParams,
@@ -17,6 +16,7 @@ export default function Login({
   const signUp = async (formData: FormData) => {
     "use server";
 
+    
     const origin = headers().get("origin");
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
