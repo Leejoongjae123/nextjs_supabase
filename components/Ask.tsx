@@ -17,7 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Ask() {
   return (
     <div className="flex flex-col items-center">
-      <div className="flex font-bold text-3xl self-center p-0.5 ">
+      <div className="flex font-bold text-2xl md:text-3xl p-0.5">
         카카오톡 1:1로 문의 주세요
       </div>
       <div className="flex justify-center mt-10">

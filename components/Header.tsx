@@ -58,8 +58,8 @@ export default function Header() {
           <strong>거래수수료</strong>는 돌려받아야죠
         </p>
 
-        <div className="flex my-10 justify-center items-center rounded-lg ">
-          <div>
+        <div className="flex my-10 justify-center items-center rounded-lg">
+          <div className="flex">
             <FormControl sx={{ m: 1, minWidth: 120 }}>
               <InputLabel id="demo-simple-select-helper-label">
                 거래소
@@ -77,7 +77,7 @@ export default function Header() {
               </Select>
             </FormControl>
           </div>
-          <div>
+          <div className="flex">
             <TextField
               id="outlined-basic"
               label="UID를 입력해주세요"
@@ -85,72 +85,65 @@ export default function Header() {
               style={{ backgroundColor: "#FFFFFF", borderRadius: 5 }} // 이 부분을 추가
             />
           </div>
-
-          {/* <Button
-            onClick={() => {
-              router.push("/search");
-            }}
-          >
-            검색
-          </Button> */}
-          <button 
-          className="bg-[rgb(255,0,155)] text-white font-bold py-2 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg"
-          onClick={()=>{
-            router.push("/search")
-          }}
-          >
-            검색
-          </button>
+          <div className="flex">
+            <button
+              className="bg-[rgb(255,0,155)] text-white font-bold py-3.5 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg ml-2"
+              onClick={() => {
+                router.push("/search");
+              }}
+            >
+              검색
+            </button>
+          </div>
         </div>
-        <div className="flex text-lg self-center p-0.5 ">
+        <div className="flex text-xs md:text-lg self-center p-0.5">
           레퍼럴 코드로 가입된 OKX 계정만 조회가 가능합니다.
         </div>
         <Link href={"https://www.okx.com/join/rich20payback"}>
-          <div className="flex text-sm items-center justify-center p-0.5 underline font-bold text-customPink">
+          <div className="flex text-xs md:text-sm items-center justify-center p-0.5 underline font-bold text-customPink">
             수수료 페이백 계정이 아직도 없으신가요? 지금 가입하기
           </div>
         </Link>
         <div className="h-[100px]"></div>
-        <div className="flex text-5xl text-customPink font-bold self-center p-0.5 ">
+        <div className="flex text-4xl md:text-5xl text-customPink font-bold self-center p-0.5 ">
           OKX 코드 가입시
         </div>
-        <div className="flex text-5xl font-bold self-center p-0.5">
-          <p className="text-customPink">수수료 페이백</p>과 평생 무료 지표
+        <div className="flex text-4xl md:text-5xl font-bold self-center p-0.5">
+          <p className="text-4xl text-center md:text-5xl text-white"><span className="text-customPink">수수료 페이백</span>과 평생 무료 지표</p>
         </div>
         <div className="flex flex-col mt-5 justify-center">
-          <div className="flex text-2xl  self-center  p-0.5 ">
-            트레이딩뷰 계정만 있다면,
+          <div className="flex justify-center text-lg md:text-2xl p-0.5 ">
+            <p className="text-center">트레이딩뷰 계정만 있다면</p>
           </div>
-          <div className="flex text-2xl self-center  p-0.5 ">
-            <strong>OKX</strong> 시그널 봇과 연동이 가능하여
+          <div className="flex text-lg md:text-2xl self-center  p-0.5 text-center ">
+            <p><strong>OKX</strong> 시그널 봇과 연동이 가능하여</p>
+            
           </div>
-          <div className="flex text-2xl self-center  p-0.5 ">
-            <strong>재동매매 전략</strong>을 구축할 수 있습니다.
+          <div className="flex text-lg md:text-2xl self-center  p-0.5 ">
+            <p><strong>재동매매 전략</strong>을 구축할 수 있습니다.</p>
           </div>
         </div>
 
         <div className="flex justify-center my-10">
           <Link href="https://www.youtube.com/watch?v=PGjkxG_RN5A&t=16s">
             {/* <Button>자동매매 설정가이드</Button> */}
-            <button 
-          className="bg-[rgb(255,0,155)] text-white font-bold py-2 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg"
-          >
-            자동매매 설정가이드
-          </button>
+            <button className="bg-[rgb(255,0,155)] text-white font-bold py-2 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
+              자동매매 설정가이드
+            </button>
           </Link>
         </div>
         <div className="">
           <Cards></Cards>
         </div>
-        <div className="flex self-center mt-6  p-0.5 ">
+        <div className="flex self-center mt-6  p-0.5 text-center ">
           OKX 거래소에서 운용이 되지 않을 경우, 스크립트 초대가 취소될 수
           있습니다.
         </div>
 
-        <div className="flex text-customPink text-5xl font-bold mt-20 self-center p-0.5 ">
+        <div className="flex text-customPink text-3xl md:text-5xl font-bold mt-20 self-center p-0.5 ">
           월 구독제 유료 지표
         </div>
-        <div className="flex text-5xl font-bold self-center mt-6  p-0.5 ">
+        <div className="flex text-2xl md:text-5xl font-bold self-center mt-6  p-0.5 text-center">
           마스터시그널 / 블록쉬프트는 별도 문의
         </div>
         <div className="h-[200px]"></div>

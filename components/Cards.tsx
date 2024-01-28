@@ -6,6 +6,9 @@ import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import * as React from "react";
 import Image from "next/image";
+import Carousel from "./Carousel";
+import "react-multi-carousel/lib/styles.css";
+import Link from "next/link";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -15,28 +18,34 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const imageList = [
-  "/images/strategy1.jpg",
-  "/images/strategy2.jpg",
-  "/images/strategy3.jpg",
-  "/images/strategy4.jpg",
+const slides = [
+  {
+    path: "/images/strategy1.jpg",
+    url: "https://kr.tradingview.com/script/lFhuKeoM/",
+  },
+  {
+    path: "/images/strategy2.jpg",
+    url: "https://kr.tradingview.com/script/BrdbRTuy/",
+  },
+  {
+    path: "/images/strategy3.jpg",
+    url: "https://kr.tradingview.com/script/Dy9XNJb5/",
+  },
+  {
+    path: "/images/strategy.jpg",
+    url: "https://kr.tradingview.com/script/Dy9XNJb5/",
+  },
 ];
 
 function Cards() {
   return (
-    <Box sx={{ width: "100%" }}>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        {imageList.map((elem, index) => {
-          return (
-            <Grid item xs={12} md={6}>
-              <Item>
-                <Image width={500} height={300} alt="Strategy 1" src={elem}></Image>
-              </Item>
-            </Grid>
-          );
+    <div className=" w-full h-50 bg-white">
+      <Carousel autoSlide={true} autoSlideInterval={3000}>
+        {slides.map((elem) => {
+          return (<img src={elem.path} alt="image"></img>);
         })}
-      </Grid>
-    </Box>
+      </Carousel>
+    </div>
   );
 }
 
