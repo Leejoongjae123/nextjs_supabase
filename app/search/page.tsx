@@ -49,11 +49,12 @@ export default async function Search({
     .select()
     .eq("email", user?.email);
 
-  const okxuid=""
+  
   if (update.data && update.data.length > 0) {
     const okxuid = update.data[0].okxuid;
     console.log("okxuid:", okxuid);
   } else {
+    const okxuid=""
     console.log("No data found or an error occurred");
   }
 
