@@ -15,6 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Button } from "@mui/material";
 import Ask from "./Ask";
 import { redirect } from "next/navigation";
+import './MyComponent.css';
 
 // 사용자 지정 색상 정의
 const customPink = "rgb(255, 0, 155)";
@@ -60,8 +61,8 @@ export default function Header() {
         </p>
 
         <div className="flex my-10 justify-center items-center rounded-lg">
-          <div className="w-1/3">
-            <FormControl sx={{ m: 1, minWidth: 120 }}>
+          <div className="">
+            <FormControl sx={{ m: 1,}}>
               <InputLabel id="demo-simple-select-helper-label">
                 거래소
               </InputLabel>
@@ -71,24 +72,25 @@ export default function Header() {
                 value={age}
                 label="Age"
                 onChange={handleChange}
-                style={{ backgroundColor: "white", borderRadius: 5 }}
+                style={{ backgroundColor: "white", borderRadius: 5,width:80 }}
               >
                 <MenuItem defaultValue={"OKX"}></MenuItem>
                 <MenuItem value={"OKX"}>OKX</MenuItem>
               </Select>
             </FormControl>
           </div>
-          <div className="flex">
+          <div className="">
             <TextField
               id="outlined-basic"
-              label="UID를 입력해주세요"
+              label="UID 입력"
               variant="outlined"
-              style={{ backgroundColor: "#FFFFFF", borderRadius: 5 }} // 이 부분을 추가
+              className="myComponentStyle"
+              // style={{ backgroundColor: "#FFFFFF", borderRadius: 5,width:100}} // 이 부분을 추가
             />
           </div>
-          <div className="flex">
+          <div className="flex justify-center w-20">
             <button
-              className="bg-[rgb(255,0,155)] text-white font-bold py-3.5 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg ml-2"
+              className="bg-[rgb(255,0,155)] text-white font-bold p-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
               onClick={() => {
                 router.push("/search");
                 // redirect('/search?uid={}')

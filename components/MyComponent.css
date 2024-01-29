@@ -1,0 +1,12 @@
+/* MyComponent.css */
+.myComponentStyle {
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  width: 100px; /* 기본 너비 */
+}
+
+@media (min-width: 1024px) { /* PC 화면 사이즈일 때 */
+  .myComponentStyle {
+    width: 200px; /* 화면이 PC 사이즈일 때 너비 */
+  }
+}
