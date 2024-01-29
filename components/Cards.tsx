@@ -44,8 +44,8 @@ function Cards() {
       <Carousel autoSlide={true} autoSlideInterval={3000} datas={datas}>
         {datas.map((elem,index) => {
           return (
-            
-              <img key={index} src={elem.path} alt="image"></img>
+
+              <img  key={index} src={elem.path} alt="image"></img>
             
           );
         })}

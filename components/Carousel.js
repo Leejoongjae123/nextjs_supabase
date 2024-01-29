@@ -23,10 +23,11 @@ export default function Carousel({
   console.log('datas',datas)
   return (
     
-    <div className="overflow-hidden relative filter grayscale hover:grayscale-0 transition duration-300 z-50">
+    <div style={{border:"2px solid rgb(255,0,155)"}} className="overflow-clip relative transition duration-300 z-50">
       <div
         className="flex transition-transform ease-out duration-500"
-        style={{ transform: `translateX(-${curr * 100}%)` }}
+        
+        style={{ transform: `translateX(-${curr * 100}%)`}}
       >
         {slides}
       </div>

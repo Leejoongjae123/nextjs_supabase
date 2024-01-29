@@ -91,6 +91,7 @@ export default function Header() {
           <div className="flex justify-center w-20">
             <button
               className="bg-[rgb(255,0,155)] text-white font-bold p-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
+              
               onClick={() => {
                 router.push("/search");
                 // redirect('/search?uid={}')
