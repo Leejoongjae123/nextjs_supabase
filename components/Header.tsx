@@ -5,7 +5,7 @@ import Link from "next/link";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 // import Button from '@/components/ui/Button';
-import Cards from "./Cards";
+import Cards from "./Cards.tsx";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -17,6 +17,7 @@ import Ask from "./Ask";
 import { redirect } from "next/navigation";
 import "./MyComponent.css";
 import { supabase } from "../utils/supabase/client";
+
 
 // 사용자 지정 색상 정의
 const customPink = "rgb(255, 0, 155)";

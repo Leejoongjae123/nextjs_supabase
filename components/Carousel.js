@@ -1,6 +1,6 @@
+'use client'
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "react-feather"
-
 
 export default function Carousel({
   children: slides,
@@ -11,18 +11,18 @@ export default function Carousel({
   const [curr, setCurr] = useState(0)
 
   const prev = () =>
-    setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1))
-  const next = () =>
+    setCurr((curr) =>{(curr === 0 ? slides.length - 1 : curr - 1)})
+  const next = () =>{
     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1))
+  }
+    
 
   useEffect(() => {
-
     if (!autoSlide) return
     const slideInterval = setInterval(next, autoSlideInterval)
     return () => clearInterval(slideInterval)
-  }, [])
-  console.log(curr)
-  console.log(slides.length)
+  }, [curr])
+
   return (
     
     <div style={{border:"2px solid rgb(255,0,155)"}} className="overflow-clip relative transition duration-300">
