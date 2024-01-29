@@ -52,6 +52,8 @@ export default async function Search({
   const okxuid = update?.data[0].okxuid;
 
   
+
+  
   return (
     <div className="animate-in flex flex-col w-full justify-center items-center text-white space-y-5">
       {/* <ThemeProvider theme={theme}> */}

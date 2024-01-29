@@ -16,14 +16,16 @@ export default function Carousel({
     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1))
 
   useEffect(() => {
+
     if (!autoSlide) return
     const slideInterval = setInterval(next, autoSlideInterval)
     return () => clearInterval(slideInterval)
   }, [])
-  console.log('datas',datas)
+  console.log(curr)
+  console.log(slides.length)
   return (
     
-    <div style={{border:"2px solid rgb(255,0,155)"}} className="overflow-clip relative transition duration-300 z-50">
+    <div style={{border:"2px solid rgb(255,0,155)"}} className="overflow-clip relative transition duration-300">
       <div
         className="flex transition-transform ease-out duration-500"
         

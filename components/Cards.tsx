@@ -1,5 +1,4 @@
-"use client";
-
+'use client'
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -10,6 +9,10 @@ import Carousel from "./Carousel";
 import "react-multi-carousel/lib/styles.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { supabase } from "@/utils/supabase/client";
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -21,37 +24,54 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const datas = [
   {
-    path: "/images/strategy1.jpg",
+    imageUrl: "/images/strategy1.jpg",
     url: "https://kr.tradingview.com/script/lFhuKeoM/",
   },
   {
-    path: "/images/strategy2.jpg",
+    imageUrl: "/images/strategy2.jpg",
     url: "https://kr.tradingview.com/script/BrdbRTuy/",
   },
   {
-    path: "/images/strategy3.jpg",
+    imageUrl: "/images/strategy3.jpg",
     url: "https://kr.tradingview.com/script/Dy9XNJb5/",
   },
   {
-    path: "/images/strategy4.jpg",
+    imageUrl: "/images/strategy4.jpg",
     url: "https://kr.tradingview.com/script/Dy9XNJb5/",
   },
 ];
 
-function Cards() {
+export default function Cards() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let { data: strategies, error } = await supabase
+        .from("strategies")
+        .select("*");
+
+      if (error) {
+        console.error("Error fetching data:", error);
+      } else {
+        setData(strategies);
+        console.log("strategies:", strategies);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log('data:',data)
+
   return (
     <div className=" w-full h-50 bg-white">
-      <Carousel autoSlide={true} autoSlideInterval={3000} datas={datas}>
-        {datas.map((elem,index) => {
-          return (
-
-              <img  key={index} src={elem.path} alt="image"></img>
-            
-          );
+      <Carousel autoSlide={true} autoSlideInterval={3000} datas={data}>
+        {data.map((elem, index) => {
+          return <img key={index} src={elem?.imageUrl} alt="image"></img>;
         })}
       </Carousel>
+
     </div>
   );
 }
-
-export default Cards;

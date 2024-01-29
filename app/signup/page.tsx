@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Checkbox from "../../components/Checkbox";
 
 export default function Login({
   searchParams,
@@ -20,6 +21,8 @@ export default function Login({
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     const okxuid = formData.get("okxuid") as string;
+    const nickname = formData.get("nickname") as string;
+    const checkbox = formData.get("checkbox")==="on";
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
 
@@ -36,7 +39,13 @@ export default function Login({
 
     const update = await supabase
       .from("profiles")
-      .update({ email: email, okxuid: okxuid, updated_at: new Date() })
+      .update({
+        email: email,
+        okxuid: okxuid,
+        updated_at: new Date(),
+        nickname: nickname,
+        checkbox:checkbox
+      })
       .eq("id", myuid);
 
     console.log("update:", update);
@@ -91,16 +100,32 @@ export default function Login({
             required
           />
         </div>
-
-        {/* <button
-          className="bg-[rgb(255,0,155)] rounded-md px-4 py-2 text-foreground mb-2 mt-6"
+        <label className="text-md text-white" htmlFor="email">
+          닉네임
+        </label>
+        <input
+          className="rounded-md px-4 py-2 bg-white border mb-6"
+          name="nickname"
+          placeholder="OKX 닉네임"
+          required
+        />
+        <div className="flex items-center">
+          <input
+            id="checkbox"
+            name="checkbox"
+            type="checkbox"
+            className="form-checkbox h-4 w-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
+          />
+          <label
+            htmlFor="checkbox"
+            className="ml-2 text-md text-red-500 font-bold"
+          >
+            자동매매 지표를 무료로 이용하시겠습니까? 자동매매를 이용할 경우는 40%, 수수료 페이백만 이용할 경우 55%의 수수료가 지급됩니다.(변경불가)
+          </label>
+        </div>
+        <button
+          className="bg-[rgb(255,0,155)] text-white font-bold mt-6 px-4 py-2 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
           formAction={signUp}
-        >
-          회원가입
-        </button> */}
-        <button 
-        className="bg-[rgb(255,0,155)] text-white font-bold mt-6 px-4 py-2 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
-        formAction={signUp}
         >
           회원가입
         </button>

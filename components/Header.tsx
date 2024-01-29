@@ -9,13 +9,14 @@ import Cards from "./Cards";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useRouter } from "next/navigation";
 import MenuItem from "@mui/material/MenuItem";
 import { Button } from "@mui/material";
 import Ask from "./Ask";
 import { redirect } from "next/navigation";
-import './MyComponent.css';
+import "./MyComponent.css";
+import { supabase } from "../utils/supabase/client";
 
 // 사용자 지정 색상 정의
 const customPink = "rgb(255, 0, 155)";
@@ -49,56 +50,66 @@ export default function Header() {
 
   const router = useRouter();
 
+  const [data, setData] = useState();
+  // console.log('supabase:',supabase)
+
   return (
     <div className="flex flex-col gap-2 items-center">
       <ThemeProvider theme={theme}>
-        <h1 className="text-5xl font-extrabold text-custompink text-center mt-20 mb-8 text-customPink">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-custompink text-center mt-20 mb-8 text-customPink">
           Boost Your Trading
         </h1>
-        <p className="m-auto text-xl text-zinc-200 sm:text-center sm:text-2xl">
+        <p className="m-auto text-lg md:text-xl text-zinc-200 sm:text-center sm:text-2xl">
           트레이딩의 날개를 달아줄 부스터<br></br>당연히{" "}
           <strong>거래수수료</strong>는 돌려받아야죠
         </p>
 
-        <div className="flex my-10 justify-center items-center rounded-lg">
-          <div className="">
-            <FormControl sx={{ m: 1,}}>
-              <InputLabel id="demo-simple-select-helper-label">
-                거래소
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                value={age}
-                label="Age"
-                onChange={handleChange}
-                style={{ backgroundColor: "white", borderRadius: 5,width:80 }}
+        <div className="w-full flex-row  my-5 justify-center items-center rounded-lg">
+          <div className="flex justify-center gap-x-2  items-center mb-3">
+            <div className="w-1/3">
+              <FormControl className="w-full">
+                <InputLabel id="demo-simple-select-helper-label">
+                  거래소
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  value={age}
+                  label="Age"
+                  onChange={handleChange}
+                  style={{
+                    backgroundColor: "white",
+                    borderRadius: 5,
+                    width: "full",
+                  }}
+                >
+                  <MenuItem defaultValue={"OKX"}></MenuItem>
+                  <MenuItem value={"OKX"}>OKX</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+            <div className="w-2/3">
+              <TextField
+                id="outlined-basic"
+                label="UID 입력"
+                variant="outlined"
+                className="myComponentStyle w-full"
+                // style={{ backgroundColor: "#FFFFFF", borderRadius: 5,width:100}} // 이 부분을 추가
+              />
+            </div>
+          </div>
+          <div className="flex w-full">
+            <div className="flex w-full justify-center items-center ">
+              <button
+                className="w-full  bg-[rgb(255,0,155)] text-white font-bold px-4 py-2  border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
+                onClick={() => {
+                  router.push("/search");
+                  // redirect('/search?uid={}')
+                }}
               >
-                <MenuItem defaultValue={"OKX"}></MenuItem>
-                <MenuItem value={"OKX"}>OKX</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
-          <div className="">
-            <TextField
-              id="outlined-basic"
-              label="UID 입력"
-              variant="outlined"
-              className="myComponentStyle"
-              // style={{ backgroundColor: "#FFFFFF", borderRadius: 5,width:100}} // 이 부분을 추가
-            />
-          </div>
-          <div className="flex justify-center w-20">
-            <button
-              className="bg-[rgb(255,0,155)] text-white font-bold p-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
-              
-              onClick={() => {
-                router.push("/search");
-                // redirect('/search?uid={}')
-              }}
-            >
-              검색
-            </button>
+                검색
+              </button>
+            </div>
           </div>
         </div>
         <div className="flex text-xs md:text-lg self-center p-0.5">
@@ -110,22 +121,28 @@ export default function Header() {
           </div>
         </Link>
         <div className="h-[100px]"></div>
-        <div className="flex text-4xl md:text-5xl text-customPink font-bold self-center p-0.5 ">
+        <div className="flex text-xl md:text-5xl text-customPink font-bold self-center p-0.5 ">
           OKX 코드 가입시
         </div>
-        <div className="flex text-4xl md:text-5xl font-bold self-center p-0.5">
-          <p className="text-4xl text-center md:text-5xl text-white"><span className="text-customPink">수수료 페이백</span>과 평생 무료 지표</p>
+        <div className="flex text-2xl md:text-5xl font-bold self-center p-0.5">
+          <p className="text-xl md:text-5xl text-center  text-white">
+            <span className="text-customPink">수수료 페이백</span>과 평생 무료
+            지표
+          </p>
         </div>
         <div className="flex flex-col mt-5 justify-center">
-          <div className="flex justify-center text-lg md:text-2xl p-0.5 ">
+          <div className="flex justify-center text-md md:text-2xl p-0.5 ">
             <p className="text-center">트레이딩뷰 계정만 있다면</p>
           </div>
-          <div className="flex text-lg md:text-2xl self-center  p-0.5 text-center ">
-            <p><strong>OKX</strong> 시그널 봇과 연동이 가능하여</p>
-            
+          <div className="flex text-md md:text-2xl self-center  p-0.5 text-center ">
+            <p>
+              <strong>OKX</strong> 시그널 봇과 연동이 가능하여
+            </p>
           </div>
-          <div className="flex text-lg md:text-2xl self-center  p-0.5 ">
-            <p><strong>재동매매 전략</strong>을 구축할 수 있습니다.</p>
+          <div className="flex text-md md:text-2xl self-center  p-0.5 ">
+            <p>
+              <strong>재동매매 전략</strong>을 구축할 수 있습니다.
+            </p>
           </div>
         </div>
 
@@ -145,15 +162,14 @@ export default function Header() {
           있습니다.
         </div>
 
-        <div className="flex text-customPink text-3xl md:text-5xl font-bold mt-20 self-center p-0.5 ">
+        <div className="flex text-customPink text-2xl md:text-5xl font-bold mt-20 self-center p-0.5 ">
           월 구독제 유료 지표
         </div>
-        <div className="flex text-2xl md:text-5xl font-bold self-center mt-6  p-0.5 text-center">
+        <div className="flex text-2xl md:text-5xl font-bold self-center p-0.5 text-center">
           마스터시그널 / 블록쉬프트는 별도 문의
         </div>
         <div className="h-[100px] md:h-[200px]"></div>
         <Ask></Ask>
-        
       </ThemeProvider>
     </div>
   );
