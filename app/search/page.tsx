@@ -63,7 +63,7 @@ export default async function Search({
           <span className="text-customPink">당신의 것</span>이니까
         </h1>
       </div>
-      <div className="text-sm md:text-2xl">
+      <div className="text-xs md:text-2xl">
         UID : {okxuid} 에서 조회된 수수료 페이백 데이터입니다.
       </div>
       <div className=" w-2/3 md:w-1/4 flex-col py-10 bg-white  text-black text-center rounded-2xl">
