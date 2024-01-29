@@ -16,7 +16,6 @@ export default function Login({
   const signUp = async (formData: FormData) => {
     "use server";
 
-    
     const origin = headers().get("origin");
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
@@ -24,7 +23,7 @@ export default function Login({
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
 
-    const register:any = await supabase.auth.signUp({
+    const register: any = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -32,7 +31,6 @@ export default function Login({
       },
     });
 
-    
     const myuid = register.data.user.id;
     console.log("myuid:", myuid);
 
@@ -79,26 +77,30 @@ export default function Login({
           UID
         </label>
         <div className="flex justify-center w-full gap-x-2">
-            <input
-              className="w-1/3 rounded-md  px-4 py-2 bg-white border mb-6"
-              name="okxuid"
-              value="OKX"
-              disabled
-            />
+          <input
+            className="w-1/3 rounded-md  px-4 py-2 bg-white border mb-6"
+            name="okxuid"
+            value="OKX"
+            disabled
+          />
 
-
-            <input
-              className="w-2/3 rounded-md px-4 py-2 bg-white border mb-6"
-              name="okxuid"
-              placeholder="UID를 입력해주세요"
-              required
-            />
-
+          <input
+            className="w-2/3 rounded-md px-4 py-2 bg-white border mb-6"
+            name="okxuid"
+            placeholder="UID를 입력해주세요"
+            required
+          />
         </div>
 
-        <button
+        {/* <button
           className="bg-[rgb(255,0,155)] rounded-md px-4 py-2 text-foreground mb-2 mt-6"
           formAction={signUp}
+        >
+          회원가입
+        </button> */}
+        <button 
+        className="bg-[rgb(255,0,155)] text-white font-bold mt-6 px-4 py-2 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
+        formAction={signUp}
         >
           회원가입
         </button>

@@ -98,15 +98,19 @@ export default function Login({
           placeholder="••••••••"
           required
         />
-        <button className="bg-[rgb(255,0,155)] rounded-md px-4 py-2 text-foreground mb-2">
+        {/* <button className="bg-[rgb(255,0,155)] rounded-md px-4 py-2 text-foreground mb-2">
           로그인
-        </button>
+        </button> */}
+
         {/* <button
           formAction={signUp}
           className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2 bg-white"
         >
           회원가입
         </button> */}
+        <button className="bg-[rgb(255,0,155)] text-white font-bold ppx-4 py-2 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md">
+          로그인
+        </button>
         <Link href="/signin"></Link>
 
         {searchParams?.message && (
