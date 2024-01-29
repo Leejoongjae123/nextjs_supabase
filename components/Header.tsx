@@ -60,7 +60,7 @@ export default function Header() {
         </p>
 
         <div className="flex my-10 justify-center items-center rounded-lg">
-          <div className="flex">
+          <div className="w-1/3">
             <FormControl sx={{ m: 1, minWidth: 120 }}>
               <InputLabel id="demo-simple-select-helper-label">
                 거래소
