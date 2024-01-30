@@ -8,29 +8,11 @@ import axios from "axios";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { cookies } from "next/headers";
+import Payback from '../../components/Payback'
 
 // 사용자 지정 색상 정의
 const customPink = "rgb(255, 0, 155)";
-// MUI 테마 생성
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       main: customPink,
-//     },
-//   },
-//   components: {
-//     MuiSelect: {
-//       styleOverrides: {
-//         select: {
-//           "&:focus": {
-//             backgroundColor: "white", // 필요시 배경색 변경
-//             borderColor: customPink,
-//           },
-//         },
-//       },
-//     },
-//   },
-// });
+
 
 export default async function Search({
   searchParams,
@@ -51,6 +33,8 @@ export default async function Search({
 
   const okxuid = update?.data[0].okxuid;
 
+
+
   
 
   
@@ -65,21 +49,10 @@ export default async function Search({
           <span className="text-customPink">당신의 것</span>이니까
         </h1>
       </div>
-      <div className="text-xs md:text-2xl">
+      <div className="text-xs md:text-xl">
         UID : {okxuid} 에서 조회된 수수료 페이백 데이터입니다.
       </div>
-      <div className=" w-2/3 md:w-1/4 flex-col py-10 bg-white  text-black text-center rounded-2xl">
-        <h1 className="font-black font-bold text-3xl md:text-5xl">
-          누적 페이백
-        </h1>
-        <p>...USDT</p>
-      </div>
-      <div className="w-2/3 md:w-1/4 flex-col py-10  text-black text-center rounded-2xl bg-[rgb(255,0,155)]">
-        <h1 className="text-white font-bold text-3xl md:text-5xl">
-          출금가능 페이백
-        </h1>
-        <p>...USDT</p>
-      </div>
+      <Payback okxuid={okxuid}></Payback>
 
       {/* <Button onClick={()=>{
         router.push('/complete')

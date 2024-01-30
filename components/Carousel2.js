@@ -13,19 +13,6 @@ export default function SliderKOSIS() {
   const [KOSISLoading, setKOSISLoading] = useState(true);
 
   useEffect(() => {
-    // 데이터를 가져오는 함수를 정의합니다.
-    // const fetchData1 = async () => {
-    //   try {
-    //     const response = await axios.get(
-    //       `https://mks5ux6whggik4anhr3c5ofdie0abvss.lambda-url.ap-northeast-2.on.aws/getKOSIS?page=1`
-    //     );
-    //     setKOSIS(response.data);
-    //     setKOSISLoading(false);
-    //     // console.log("loadingKOSIS");
-    //   } catch (error) {
-    //     console.error("Error fetching data:", error);
-    //   }
-    // };
     const fetchData = async () => {
       let { data: strategies, error } = await supabase
         .from("strategies")
