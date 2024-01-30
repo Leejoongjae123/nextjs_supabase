@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { supabase } from "@/utils/supabase/client";
-
+import Carousel2 from "./Carousel2";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -42,10 +42,10 @@ const datas = [
 ];
 
 export default function Cards() {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    
     const fetchData = async () => {
       let { data: strategies, error } = await supabase
         .from("strategies")
@@ -62,16 +62,16 @@ export default function Cards() {
     fetchData();
   }, []);
 
-  console.log('data:',data)
+  console.log("data:", data);
 
   return (
-    <div className=" w-full h-50 bg-white">
-      <Carousel autoSlide={true} autoSlideInterval={3000} datas={data}>
+    <div className="w-[70vw]">
+      {/* <Carousel autoSlide={true} autoSlideInterval={3000} datas={data}>
         {data.map((elem, index) => {
           return <img key={index} src={elem?.imageUrl} alt="image"></img>;
         })}
-      </Carousel>
-
+      </Carousel> */}
+    <Carousel2></Carousel2>
     </div>
   );
 }

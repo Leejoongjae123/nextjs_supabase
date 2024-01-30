@@ -28,7 +28,6 @@ export default function Carousel({
     <div style={{border:"2px solid rgb(255,0,155)"}} className="overflow-clip relative transition duration-300">
       <div
         className="flex transition-transform ease-out duration-500"
-        
         style={{ transform: `translateX(-${curr * 100}%)`}}
       >
         {slides}
