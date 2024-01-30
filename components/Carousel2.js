@@ -69,7 +69,7 @@ export default function SliderKOSIS() {
       >
         {KOSIS.map((elem, index) => {
           return (
-            <div className="flex flex-col slider" key={index}>
+            <div className="flex flex-col slider p-5" key={index}>
               <div className="relative h-52">
                 {/* <img
                   src={elem.imageSrc}
@@ -85,10 +85,12 @@ export default function SliderKOSIS() {
 
               </div>
               <div className="flex flex-col text-center ">
+                <Link href={elem.url}>
                 <div className="flex flex-col mx-auto h-20">
                   <p className="text-md text-white">{elem.title}</p>
                   <p className="ml-2 text-xs text-white line-clamp-3">{elem.description}</p>
                 </div>
+                </Link>
               </div>
             </div>
           );
