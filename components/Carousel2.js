@@ -60,7 +60,7 @@ export default function SliderKOSIS() {
   };
 
   return (
-    <div className="w-full border-2 border-custom-pink rounded-xl">
+    <div className="w-full border-2 border-custom-pink border-3 rounded-xl">
       <Carousel
         responsive={responsive}
         autoPlay={true}
@@ -70,7 +70,7 @@ export default function SliderKOSIS() {
         {KOSIS.map((elem, index) => {
           return (
             <div className="flex flex-col slider p-5" key={index}>
-              <div className="relative h-52">
+              <div className="relative h-[30vh] md:h-[50vh]">
                 {/* <img
                   src={elem.imageSrc}
                   alt="이미지 설명"
@@ -82,15 +82,20 @@ export default function SliderKOSIS() {
                   className="object-cover rounded-xl"
                   fill
                 />
-
               </div>
               <div className="flex flex-col text-center ">
-                <Link href={elem.url}>
                 <div className="flex flex-col mx-auto h-20">
-                  <p className="text-md text-white">{elem.title}</p>
-                  <p className="ml-2 text-xs text-white line-clamp-3">{elem.description}</p>
+                  <div>
+                    <p className="text-md text-white line-clamp-1">{elem.title}</p>
+                    <p className="ml-2 text-xs text-white line-clamp-2">
+                      {elem.description}
+                    </p>
+                  </div>
+                  <button className="mx-auto bg-[rgb(255,0,155)] my-2 text-white font-bold p-1 px-2 border border-transparent text-xs hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
+                    <Link href={elem.url}>자세히 보기</Link>
+                    
+                  </button>
                 </div>
-                </Link>
               </div>
             </div>
           );
