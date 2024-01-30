@@ -65,7 +65,7 @@ export default function Cards() {
   console.log("data:", data);
 
   return (
-    <div className="w-[80vw] md:w-[60vw] ">
+    <div className="w-[80vw] md:w-[40vw] ">
     <Carousel2></Carousel2>
     </div>
   );
