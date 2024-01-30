@@ -60,7 +60,7 @@ export default function SliderKOSIS() {
   };
 
   return (
-    <div className="w-full border-2 border-custom-pink  rounded-xl">
+    <div className="w-full border-2 border-custom-pink rounded-xl">
       <Carousel
         responsive={responsive}
         autoPlay={true}

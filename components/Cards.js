@@ -65,12 +65,7 @@ export default function Cards() {
   console.log("data:", data);
 
   return (
-    <div className="w-[70vw]">
-      {/* <Carousel autoSlide={true} autoSlideInterval={3000} datas={data}>
-        {data.map((elem, index) => {
-          return <img key={index} src={elem?.imageUrl} alt="image"></img>;
-        })}
-      </Carousel> */}
+    <div className="w-[80vw] md:w-[60vw] ">
     <Carousel2></Carousel2>
     </div>
   );

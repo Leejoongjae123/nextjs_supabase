@@ -66,8 +66,8 @@ export default function Header() {
         </p>
 
         <div className="w-full flex-row  my-5 justify-center items-center rounded-lg">
-          <div className="flex justify-center gap-x-2  items-center mb-3">
-            <div className="w-1/3">
+          <div className="flex justify-center gap-x-2  items-center mb-3 ">
+            <div className="w-[30vw] md:w-[10vw]">
               <FormControl className="w-full">
                 <InputLabel id="demo-simple-select-helper-label">
                   거래소
@@ -89,7 +89,7 @@ export default function Header() {
                 </Select>
               </FormControl>
             </div>
-            <div className="w-2/3">
+            <div className="w-[50vw] md:w-[40vw]">
               <TextField
                 id="outlined-basic"
                 label="UID 입력"
@@ -99,10 +99,10 @@ export default function Header() {
               />
             </div>
           </div>
-          <div className="flex w-full">
-            <div className="flex w-full justify-center items-center ">
+          <div className="flex justify-center">
+            <div className="flex justify-center items-center ">
               <button
-                className="w-full  bg-[rgb(255,0,155)] text-white font-bold px-4 py-2  border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
+                className="block w-[20vw] md:w-[50vw]  bg-[rgb(255,0,155)] text-white font-bold px-4 py-2  border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
                 onClick={() => {
                   router.push("/search");
                   // redirect('/search?uid={}')
