@@ -43,7 +43,12 @@ const theme = createTheme({
   },
 });
 
-export default function Header({email}) {
+// Props 타입 정의
+interface HeaderProps {
+  email: any; // `email` prop에 `any` 타입 지정
+}
+
+export default function Header({email}:HeaderProps) {
   const [age, setAge] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
   // 상태 변수 선언
