@@ -35,7 +35,6 @@ export default async function Search({
 
 
 
-  
 
   
   return (
@@ -57,12 +56,8 @@ export default async function Search({
       {/* <Button onClick={()=>{
         router.push('/complete')
       }}>지금 출금하기</Button> */}
-      <Link href="/complete">
-        <button className="bg-black text-[rgb(255,0,155)] font-bold py-2 px-4 border border-[rgb(255,0,155)] border-transparent hover:bg-[rgb(255,0,155)] hover:text-white rounded-lg">
-          지금 출금하기
-        </button>
-      </Link>
 
+        
       <div className="text-center text-xs px-10 md:px-0 ">
         <p>출금은 100usdt 이상 부터 가능합니다.</p>
         <p>
