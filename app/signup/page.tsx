@@ -9,6 +9,7 @@ import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Checkbox from "../../components/Checkbox";
 
+
 export default function Login({
   searchParams,
 }: {
@@ -46,8 +47,6 @@ export default function Login({
         checkbox:checkbox
       })
       .eq("id", myuid);
-
-    console.log("update:", update);
 
     if (register.error) {
       return redirect("/signup?message=Could not authenticate user");

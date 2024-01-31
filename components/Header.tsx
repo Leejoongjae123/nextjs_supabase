@@ -9,7 +9,7 @@ import Cards from "./Cards.js";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import MenuItem from "@mui/material/MenuItem";
 import { Button } from "@mui/material";
@@ -18,6 +18,7 @@ import { redirect } from "next/navigation";
 import "./MyComponent.css";
 import { supabase } from "../utils/supabase/client";
 import Carousel2 from "./Carousel2";
+import Modal from "./Modal";
 
 // 사용자 지정 색상 정의
 const customPink = "rgb(255, 0, 155)";
@@ -42,17 +43,37 @@ const theme = createTheme({
   },
 });
 
-export default function Header() {
+export default function Header({email}) {
   const [age, setAge] = useState("");
-
+  const [isModalOpen, setModalOpen] = useState(false);
+  // 상태 변수 선언
+  const [inputValue, setInputValue] = useState("");
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value);
   };
-
   const router = useRouter();
-
   const [data, setData] = useState();
-  // console.log('supabase:',supabase)
+
+  // TextField의 값이 변경될 때 호출될 함수
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSearch = async () => {
+    const profile = await supabase
+    .from("profiles")
+    .select()
+    .eq("email", email);
+    
+    const realuid=profile?.data[0]?.okxuid
+    
+
+    if(realuid===inputValue){
+      router.push('/search')
+    }else{
+      router.push('/fail')
+    }
+  };
 
   return (
     <div className="flex flex-col gap-2 items-center">
@@ -66,7 +87,7 @@ export default function Header() {
         </p>
 
         <div className="w-full flex-row  my-5 justify-center items-center rounded-lg">
-          <div className="flex justify-center gap-x-2  items-center mb-3 ">
+          <div className="flex justify-center items-center mb-3 ">
             <div className="w-[30vw] md:w-[10vw]">
               <FormControl className="w-full">
                 <InputLabel id="demo-simple-select-helper-label">
@@ -89,12 +110,14 @@ export default function Header() {
                 </Select>
               </FormControl>
             </div>
-            <div className="w-[50vw] md:w-[40vw]">
+            <div className="w-[50vw] md:w-[20vw]">
               <TextField
                 id="outlined-basic"
                 label="UID 입력"
                 variant="outlined"
                 className="myComponentStyle w-full"
+                value={inputValue}
+                onChange={handleInputChange}
                 // style={{ backgroundColor: "#FFFFFF", borderRadius: 5,width:100}} // 이 부분을 추가
               />
             </div>
@@ -102,11 +125,8 @@ export default function Header() {
           <div className="flex justify-center">
             <div className="flex justify-center items-center ">
               <button
-                className="block w-[20vw] md:w-[50vw]  bg-[rgb(255,0,155)] text-white font-bold px-4 py-2  border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
-                onClick={() => {
-                  router.push("/search");
-                  // redirect('/search?uid={}')
-                }}
+                className="block w-[80vw] md:w-[30vw]  bg-[rgb(255,0,155)] text-white font-bold px-4 py-2  border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
+                onClick={handleSearch}
               >
                 검색
               </button>

@@ -8,13 +8,16 @@ import { cookies } from "next/headers";
 import { Button } from "@mui/material";
 export default async function Index() {
   const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
+
+  const {data: { user:{email} }} =await   supabase.auth.getUser();
+  
 
   const canInitSupabaseClient = () => {
     // This function is just for the interactive tutorial.
     // Feel free to remove it once you have Supabase connected.
     try {
-      const result=createClient(cookieStore);
-      
+      const result=createClient(cookieStore);     
       return true;
     } catch (e) {
       return false;
@@ -38,7 +41,7 @@ export default async function Index() {
 
 
       <div className="animate-in flex-1 flex flex-col gap-20  max-w-4xl px-3">
-        <Header />
+        <Header email={email} />
         {/* <main className="flex-1 flex flex-col gap-6 bg-black">
           <h2 className="font-bold text-4xl mb-4">Next steps</h2>
           {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}

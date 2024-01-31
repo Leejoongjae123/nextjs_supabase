@@ -30,7 +30,9 @@ function Payback({ okxuid }) {
 
     const calculateTotalPayback = () => {
       return withdrawList.data.reduce(
-        (total, item) => total + item.reqPayback,0);
+        (total, item) => total + item.reqPayback,
+        0
+      );
     };
 
     setWithdraw(calculateTotalPayback);
@@ -53,8 +55,8 @@ function Payback({ okxuid }) {
       response.data?.result?.data[0]?.totalCommission * coeff
     ).toFixed(2);
     setPayback(result);
-    const restPayback=parseFloat(result)-parseFloat(calculateTotalPayback)
-    setRest(calculateTotalPayback)
+    const restPayback = parseFloat(result) - parseFloat(calculateTotalPayback);
+    setRest(calculateTotalPayback);
     setIsComplete(true);
   };
   const fetchProfile = async () => {};
@@ -64,11 +66,31 @@ function Payback({ okxuid }) {
     fetchProfile();
   }, []);
 
-  useEffect(()=>{
-    if(payback-withdraw>=100){
-      setPossible(true)
+  useEffect(() => {
+    if (payback - withdraw >= 100) {
+      setPossible(true);
     }
-  },[payback])
+  }, [payback]);
+
+  const reqWithdraw = async () => {
+    const { data, error } = await supabase
+      .from("withdraw")
+      .insert([
+        {
+          okxuid: okxuid,
+          totalPayback: payback,
+          restPayback: parseFloat(payback - withdraw).toFixed(2),
+          reqPayback: parseFloat(payback - withdraw).toFixed(2),
+        },
+      ])
+      .select();
+
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(data);
+    }
+  };
 
   return (
     <>
@@ -110,8 +132,11 @@ function Payback({ okxuid }) {
         </h1>
         <div className="flex justify-center mt-3">
           {isComplete ? (
-            <p>
-              <span className="underline font-bold">{parseFloat(payback-withdraw).toFixed(2)}</span> USDT
+            <p className="text-white">
+              <span className="underline font-bold text-white">
+                {Math.abs(parseFloat(payback - withdraw).toFixed(2))}
+              </span>{" "}
+              USDT
             </p>
           ) : (
             <div role="flex status">
@@ -138,7 +163,12 @@ function Payback({ okxuid }) {
       </div>
       {possible ? (
         <Link href="/complete">
-          <button className="bg-black text-[rgb(255,0,155)] font-bold py-2 px-4 border border-[rgb(255,0,155)] border-transparent hover:bg-[rgb(255,0,155)] hover:text-white rounded-lg">
+          <button
+            onClick={() => {
+              reqWithdraw();
+            }}
+            className="bg-black text-[rgb(255,0,155)] font-bold py-2 px-4 border border-[rgb(255,0,155)] border-transparent hover:bg-[rgb(255,0,155)] hover:text-white rounded-lg"
+          >
             지금 출금하기
           </button>
         </Link>
@@ -162,3 +192,8 @@ function findCoeffByCheckbox(data, targetCheckboxValue) {
   // 일치하는 요소가 있다면 그의 coeff를 반환하고, 없다면 null을 반환합니다.
   return matchingElement ? matchingElement.coeff : null;
 }
+
+const formatNumber = (num) => {
+  // -0을 0으로 변환
+  return Object.is(num, -0) ? 0 : num;
+};
