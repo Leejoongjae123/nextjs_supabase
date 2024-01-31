@@ -69,8 +69,9 @@ export default function Header({email}) {
     
     const realuid=profile?.data[0]?.okxuid
     
-
-    if(realuid===inputValue){
+    if(email===""){
+      router.push('/login')
+    }else if(realuid===inputValue){
       router.push('/search')
     }else{
       router.push('/fail')

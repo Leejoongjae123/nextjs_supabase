@@ -10,14 +10,19 @@ export default async function Index() {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
 
-  const {data: { user:{email} }} =await   supabase.auth.getUser();
-  
+  // const {
+  //   data: {
+  //     user: { email },
+  //   },
+  // } = await supabase.auth.getUser();
+  const response = await supabase.auth.getUser();
+  const email = response.data?.user?.email ?? "";
 
   const canInitSupabaseClient = () => {
     // This function is just for the interactive tutorial.
     // Feel free to remove it once you have Supabase connected.
     try {
-      const result=createClient(cookieStore);     
+      const result = createClient(cookieStore);
       return true;
     } catch (e) {
       return false;
@@ -25,10 +30,8 @@ export default async function Index() {
   };
 
   const isSupabaseConnected = canInitSupabaseClient();
-  
-  const customPink = "rgb(255, 0, 155)";
 
-  
+  const customPink = "rgb(255, 0, 155)";
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center bg-black text-white">
@@ -39,7 +42,6 @@ export default async function Index() {
         </div>
       </nav> */}
 
-
       <div className="animate-in flex-1 flex flex-col gap-20  max-w-4xl px-3">
         <Header email={email} />
         {/* <main className="flex-1 flex flex-col gap-6 bg-black">
@@ -47,11 +49,9 @@ export default async function Index() {
           {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
         </main> */}
       </div>
-      
+
       <footer className="w-full p-8 flex justify-center text-center text-xs">
-        <p>
-          Powered by AURAWORKS
-        </p>
+        <p>Powered by AURAWORKS</p>
       </footer>
     </div>
   );

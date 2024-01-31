@@ -18,19 +18,6 @@ export default async function Search({
 }: {
   searchParams: { message: string };
 }) {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  const update: any = await supabase
-    .from("profiles")
-    .select()
-    .eq("email", user?.email);
-
-  const okxuid = update?.data[0].okxuid;
 
   return (
     <div className="animate-in flex flex-col w-full justify-center items-center text-white space-y-5">
