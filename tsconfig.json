@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Carousel.js", "components/Cards.js", "app/page.js", "components/Header.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Carousel.js", "components/Cards.js", "app/page.js", "components/Header.js"],
   "exclude": ["node_modules"]
 }

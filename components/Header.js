@@ -43,17 +43,14 @@ const theme = createTheme({
   },
 });
 
-// Props 타입 정의
-interface HeaderProps {
-  email: any; // `email` prop에 `any` 타입 지정
-}
 
-export default function Header({email}:HeaderProps) {
+
+export default function Header({email}) {
   const [age, setAge] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
   // 상태 변수 선언
   const [inputValue, setInputValue] = useState("");
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event) => {
     setAge(event.target.value);
   };
   const router = useRouter();
