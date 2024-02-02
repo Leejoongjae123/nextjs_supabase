@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/utils/supabase/client";
 import Link from "next/link";
 
-function Payback({ okxuid }) {
+function Payback({ okxuid,email }) {
   const [payback, setPayback] = useState(null);
   const [isComplete, setIsComplete] = useState(false);
   const [profile, setProfile] = useState();
@@ -17,7 +17,8 @@ function Payback({ okxuid }) {
     const profile = await supabase
       .from("profiles")
       .select()
-      .eq("okxuid", okxuid);
+      .eq("okxuid", okxuid)
+      .eq("email", email)
     setProfile(profile?.data[0]?.checkbox);
 
     const coeffData = await supabase.from("coeff").select();
@@ -50,6 +51,7 @@ function Payback({ okxuid }) {
     );
 
     let coeff = 0;
+    console.log('test:',coeffData.data, profile?.data[0]?.checkbox)
     coeff = findCoeffByCheckbox(coeffData.data, profile?.data[0]?.checkbox);
     const result = parseFloat(
       response.data?.result?.data[0]?.totalCommission * coeff
