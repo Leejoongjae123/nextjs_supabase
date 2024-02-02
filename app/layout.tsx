@@ -14,10 +14,8 @@ export const metadata = {
     icon: '/images/icon.png'},
   title:"트레이딩 부스터! 차트지표와 페이백을 동시에",
   openGraph: {
-    title: "Next.js",
-    description: "The React Framework for the Web",
-    url: "https://nextjs.org",
-    siteName: "Next.js",
+    title: "트레이딩 부스터! 차트지표와 페이백을 동시에",
+    url: "https://www.tradingboost.io",
     images: [
       {
         url: "https://wpcdjihluvirgbyqussd.supabase.co/storage/v1/object/public/images/ogImage.png", // Must be an absolute URL
