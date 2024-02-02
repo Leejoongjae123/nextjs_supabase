@@ -33,16 +33,6 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={GeistSans.className}>
-      <div>
-        {/* <Head>
-          <title>My page title</title>
-          <meta property="og:title" content="My page title" key="title" />
-        </Head>
-        <Head>
-          <meta property="og:title" content="My new title" key="title" />
-        </Head> */}
-        <p>Hello world!</p>
-      </div>
       <body className="">
         <main className="min-h-screen flex flex-col items-center bg-black">
           <nav className="w-full flex justify-center  h-16 text-white">

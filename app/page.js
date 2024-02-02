@@ -9,6 +9,9 @@ import { Button } from "@mui/material";
 import Head from "next/head";
 
 export const metadata = {
+  icons:{
+    icon:'images/icon.png'
+  },
   title: '트레이딩 부스터! 차트지표와 페이백을 동시에',
   openGraph: {
     title: '트레이딩 부스터! 차트지표와 페이백을 동시에',
