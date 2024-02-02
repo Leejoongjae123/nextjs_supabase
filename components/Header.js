@@ -95,7 +95,7 @@ export default function Header({ email }) {
           <div className="">
             <div className="">
               <div className="flex flex-row items-center justify-center gap-x-3 my-5">
-                <div className="w-[30vw] md:w-[10vw]">
+                <div className="w-[33vw] md:w-[10vw]">
                   <Select
                     items={users}
                     placeholder="거래소"
@@ -112,7 +112,7 @@ export default function Header({ email }) {
                             size="sm"
                             src={item.data.avatar}
                           />
-                          <div className="flex">
+                          <div className="flex ml-2">
                             <span className="text-xs">{item.data.name}</span>
                           </div>
                         </div>
@@ -128,7 +128,7 @@ export default function Header({ email }) {
                             size="sm"
                             src={user.avatar}
                           />
-                          <div className="flex flex-col">
+                          <div className="flex ml-2">
                             <span className="text-xs">{user.name}</span>
                           </div>
                         </div>
@@ -137,7 +137,7 @@ export default function Header({ email }) {
                   </Select>
                 </div>
 
-                <div className="flex w-1/3">
+                <div className="w-[38vw] md:w-1/3 flex">
                     <Input
                       placeholder="UID"
                       labelPlacement="none"
