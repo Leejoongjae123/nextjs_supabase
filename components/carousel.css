@@ -1,0 +1,4 @@
+/* 선택된 dot의 스타일 변경 */
+.custom-dot-list-style .react-multi-carousel-dot--active button {
+  background: white;
+}

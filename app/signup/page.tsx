@@ -8,6 +8,7 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Checkbox from "../../components/Checkbox";
+import CustomButton from "@/components/CustomButton";
 
 
 export default function Login({
@@ -104,7 +105,7 @@ export default function Login({
         <input
           className="rounded-md px-4 py-2 bg-white border mb-6"
           name="nickname"
-          placeholder="OKX 닉네임"
+          placeholder="트레이딩뷰 닉네임을 입력해주세요."
           required
         />
         <div className="flex items-center">
@@ -118,27 +119,12 @@ export default function Login({
             htmlFor="checkbox"
             className="ml-2 text-md text-red-500 font-bold"
           >
-            자동매매 지표를 무료로 이용하시겠습니까? 자동매매를 이용할 경우는 40%, 수수료 페이백만 이용할 경우 55%의 수수료가 지급됩니다.(변경불가)
+            자동매매 지표(플랜1,RSI자동매매봇 해당)를 무료로 이용할 경우 수수료페이백은 35% 적용됩니다.”
+그 외 수수료페이백만 이용할 경우 55% 제공. (변경 불가, OKX만 해당)
           </label>
         </div>
-        <button
-          className="bg-[rgb(255,0,155)] text-white font-bold mt-6 px-4 py-2 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md"
-          formAction={signUp}
-        >
-          회원가입
-        </button>
-        {/* {searchParams?.message && (
-          <div>
-            <p className="mt-4 p-4 bg-foreground/10 text-white text-center font-bold">
-              가입하신 이메일을 확인해주세요
-            </p>
-            <Link href="/login">
-              <p className="text-white underline text-center">
-                로그인창으로 이동하기
-              </p>
-            </Link>
-          </div>
-        )} */}
+        <CustomButton title={"회원가입"}></CustomButton>
+
       </form>
     </div>
   );

@@ -6,9 +6,11 @@ import SignUpUserSteps from "@/components/SignUpUserSteps";
 import { createClient } from "@/utils/supabase/server";
 import AuthButton from "../components/AuthButton";
 import Link from "next/link";
-import { Button } from "@mui/material";
 import Head from "next/head";
 import { openGraphImage } from "./shared-metadata";
+import { NextUIProvider } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 
 
 export default function RootLayout({

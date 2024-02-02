@@ -2,7 +2,7 @@ import Link from "next/link";
 import { headers, cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-
+import CustomButton from "../../components/CustomButton";
 export default function Login({
   searchParams,
 }: {
@@ -108,9 +108,10 @@ export default function Login({
         >
           회원가입
         </button> */}
-        <button className="bg-[rgb(255,0,155)] text-white font-bold ppx-4 py-2 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md">
+        {/* <button className="bg-[rgb(255,0,155)] text-white font-bold ppx-4 py-2 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg text-md">
           로그인
-        </button>
+        </button> */}
+        <CustomButton title={"로그인"}></CustomButton>
         <Link href="/signin"></Link>
 
         {searchParams?.message && (
@@ -121,7 +122,7 @@ export default function Login({
       </form>
       <div className="w-full">
         <Link href={"/signup"}>
-          <button className="border border-foreground/20 rounded-md px-4 py-2 text-foreground w-full border-none text-customPink underline">
+          <button className="text-custom-pink border border-foreground/20 rounded-md px-4 py-2 w-full border-none underline">
             회원가입
           </button>
         </Link>

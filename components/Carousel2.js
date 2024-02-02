@@ -7,6 +7,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { supabase } from "@/utils/supabase/client";
+import "react-multi-carousel/lib/styles.css";
 
 export default function SliderKOSIS() {
   const [KOSIS, setKOSIS] = useState([]);
@@ -47,43 +48,53 @@ export default function SliderKOSIS() {
   };
 
   return (
-    <div className="w-full border-2 border-custom-pink border-3 rounded-xl">
+    <div className="w-full rounded-xl">
+      <style>
+        {`
+          .custom-dot-list-style .react-multi-carousel-dot--active button {
+            background: white;
+          }
+        `}
+      </style>
       <Carousel
         responsive={responsive}
         autoPlay={true}
         infinite={true}
         partialVisible={false}
+        showDots={true}
+        dotListClass="custom-dot-list-style"
+        removeArrowOnDeviceType={["tablet", "mobile", "desktop"]} // 'desktop' 추가
       >
         {KOSIS.map((elem, index) => {
           return (
-            <div className="flex flex-col slider p-5" key={index}>
-              <div className="relative h-[30vh] md:h-[50vh]">
-                {/* <img
-                  src={elem.imageSrc}
-                  alt="이미지 설명"
-                  className="w-full h-auto"
-                /> */}
-                <Image
-                  src={elem.imageUrl}
-                  alt="이미지 설명"
-                  className="object-cover rounded-xl"
-                  fill
-                />
-              </div>
-              <div className="flex flex-col text-center ">
-                <div className="flex flex-col mx-auto h-20">
-                  <div>
-                    <p className="text-md text-white line-clamp-1">{elem.title}</p>
-                    <p className="ml-2 text-xs text-white line-clamp-2">
-                      {elem.description}
-                    </p>
+            <div className="  flex flex-col slider p-5" key={index}>
+              <div className="h-[40vh] md:h-[50vh] border-custom-pink border-3 p-5 rounded-2xl">
+                <div className="relative h-[25vh] md:h-[40vh]">
+                  <Image
+                    src={elem.imageUrl}
+                    alt="이미지 설명"
+                    className="object-cover rounded-xl"
+                    fill
+                  />
+                </div>
+                <div className="h-[15vh] md:h-[10vh]">
+                  <div className="flex flex-col text-center ">
+                    <div className="flex flex-col mx-auto h-20">
+                      <div>
+                        <p className="text-md text-white line-clamp-1">
+                          {elem.title}
+                        </p>
+                        <p className="ml-2 text-xs text-white line-clamp-2">
+                          {elem.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <button className="mx-auto bg-[rgb(255,0,155)] my-2 text-white font-bold p-1 px-2 border border-transparent text-xs hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
-                    <Link href={elem.url}>자세히 보기</Link>
-                    
-                  </button>
                 </div>
               </div>
+              <button className="mx-auto bg-[rgb(255,0,155)] my-5 text-white font-bold p-1 px-2 border border-transparent text-xs hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
+                <Link href={elem.url}>자세히 보기</Link>
+              </button>
             </div>
           );
         })}

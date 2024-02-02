@@ -6,7 +6,6 @@ import SignUpUserSteps from "@/components/SignUpUserSteps";
 import Header from "@/components/Header";
 import { cookies } from "next/headers";
 import { Button } from "@mui/material";
-import Head from "next/head";
 
 export const metadata = {
   icons:{
@@ -71,7 +70,7 @@ export default async function Index() {
       </div>
 
       <footer className="w-full p-8 flex justify-center text-center text-xs">
-        <p>Powered by AURAWORKS</p>
+        <p>copyright © 2024 | Richkidskorean | All Right Reserved</p>
       </footer>
     </div>
   );
