@@ -8,25 +8,8 @@ import AuthButton from "../components/AuthButton";
 import Link from "next/link";
 import { Button } from "@mui/material";
 import Head from "next/head";
+import { openGraphImage } from "./shared-metadata";
 
-export const metadata = {
-  icons: {
-    icon: '/images/icon.png'},
-  title:"트레이딩 부스터! 차트지표와 페이백을 동시에",
-  openGraph: {
-    title: "트레이딩 부스터! 차트지표와 페이백을 동시에",
-    url: "https://www.tradingboost.io",
-    images: [
-      {
-        url: "https://wpcdjihluvirgbyqussd.supabase.co/storage/v1/object/public/images/ogImage.png", // Must be an absolute URL
-        width: 800,
-        height: 600,
-      }
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
 
 export default function RootLayout({
   children,
@@ -48,24 +31,18 @@ export default function RootLayout({
   const customPink = "rgb(255, 0, 155)";
   const isSupabaseConnected = canInitSupabaseClient();
 
-  const {openGraph}=metadata
-
   return (
     <html lang="en" className={GeistSans.className}>
-      {/* <Head>
-        <title>{openGraph.title}</title>
-        <meta name="description" content={openGraph.description} />
-        <meta property="og:title" content={openGraph.title} />
-        <meta property="og:description" content={openGraph.description} />
-        <meta property="og:url" content={openGraph.url} />
-        <meta property="og:site_name" content={openGraph.siteName} />
-        <meta property="og:locale" content={openGraph.locale} />
-        <meta property="og:type" content={openGraph.type} />
-        {openGraph.images.map((image, index) => (
-          <meta key={index} property="og:image" content={image.url} />
-          // 추가적으로 og:image:width, og:image:height, og:image:alt 메타 태그를 여기에 추가할 수 있습니다.
-        ))}
-      </Head> */}
+      <div>
+        {/* <Head>
+          <title>My page title</title>
+          <meta property="og:title" content="My page title" key="title" />
+        </Head>
+        <Head>
+          <meta property="og:title" content="My new title" key="title" />
+        </Head> */}
+        <p>Hello world!</p>
+      </div>
       <body className="">
         <main className="min-h-screen flex flex-col items-center bg-black">
           <nav className="w-full flex justify-center  h-16 text-white">

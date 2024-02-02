@@ -8,8 +8,22 @@ import { cookies } from "next/headers";
 import { Button } from "@mui/material";
 import Head from "next/head";
 
-
-
+export const metadata = {
+  openGraph: {
+    title: '트레이딩 부스터! 차트지표와 페이백을 동시에',
+    url: 'https://www.tradingboost.io/',
+    siteName: 'https://www.tradingboost.io/',
+    images: [
+      {
+        url: 'https://wpcdjihluvirgbyqussd.supabase.co/storage/v1/object/public/images/ogImage.png', // Must be an absolute URL
+        width: 800,
+        height: 600,
+      }
+    ],
+    locale: 'ko_Kr',
+    type: 'website',
+  },
+}
 
 export default async function Index() {
   const cookieStore = cookies();
@@ -38,8 +52,12 @@ export default async function Index() {
 
   const customPink = "rgb(255, 0, 155)";
 
+
+  
+
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center bg-black text-white">
+
       <div className="animate-in flex-1 flex flex-col gap-20  max-w-4xl px-3">
         <Header email={email} />
         {/* <main className="flex-1 flex flex-col gap-6 bg-black">
