@@ -17,7 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Ask() {
   return (
     <div className="flex flex-col items-center">
-      <div className="flex font-bold text-2xl md:text-3xl p-0.5">
+      <div className="flex text-xl md:text-2xl p-0.5">
         카카오톡 1:1로 문의 주세요
       </div>
       <div className="flex justify-center mt-10">
@@ -25,7 +25,7 @@ export default function Ask() {
           {/* <Button>
             문의하기
           </Button> */}
-          <button className="bg-[rgb(255,0,155)] text-white font-bold py-2 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
+          <button className="bg-[rgb(255,0,155)] text-xl text-white font-bold py-2 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
             문의하기
           </button>
         </Link>

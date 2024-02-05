@@ -68,7 +68,7 @@ export default function SliderKOSIS() {
         {KOSIS.map((elem, index) => {
           return (
             <div className="  flex flex-col slider p-5" key={index}>
-              <div className="h-[40vh] md:h-[50vh] border-custom-pink border-3 p-5 rounded-2xl">
+              <div className="h-[40vh] md:h-[53vh] border-custom-pink border-3 p-5 rounded-2xl">
                 <div className="relative h-[25vh] md:h-[40vh]">
                   <Image
                     src={elem.imageUrl}
@@ -84,7 +84,7 @@ export default function SliderKOSIS() {
                         <p className="text-md text-white line-clamp-1">
                           {elem.title}
                         </p>
-                        <p className="ml-2 text-xs text-white line-clamp-2">
+                        <p className="ml-2 text-md text-white line-clamp-2">
                           {elem.description}
                         </p>
                       </div>
@@ -92,7 +92,7 @@ export default function SliderKOSIS() {
                   </div>
                 </div>
               </div>
-              <button className="mx-auto bg-[rgb(255,0,155)] my-5 text-white font-bold p-1 px-2 border border-transparent text-xs hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
+              <button className="mx-auto text-xl md:text-2xl bg-[rgb(255,0,155)] my-5 text-white font-bold p-1 px-2 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
                 <Link href={elem.url}>자세히 보기</Link>
               </button>
             </div>

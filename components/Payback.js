@@ -97,12 +97,12 @@ function Payback({ okxuid,email }) {
   return (
     <>
       <div className=" w-2/3 md:w-1/4 flex-col py-10 bg-white  text-black text-center rounded-2xl">
-        <h1 className="font-black font-bold text-3xl md:text-5xl">
+        <h1 className="font-black font-bold text-3xl md:text-3xl">
           누적 페이백
         </h1>
         <div className="flex justify-center mt-3">
           {isComplete ? (
-            <p>
+            <p className="text-3xl">
               <span className="underline font-bold">{payback}</span> USDT
             </p>
           ) : (
@@ -129,12 +129,12 @@ function Payback({ okxuid,email }) {
         </div>
       </div>
       <div className="w-2/3 md:w-1/4 flex-col py-10  text-black text-center rounded-2xl bg-[rgb(255,0,155)]">
-        <h1 className="text-white font-bold text-3xl md:text-5xl">
+        <h1 className="text-white font-bold text-3xl md:text-3xl">
           출금가능 페이백
         </h1>
         <div className="flex justify-center mt-3">
           {isComplete ? (
-            <p className="text-white">
+            <p className="text-white text-3xl">
               <span className="underline font-bold text-white">
                 {Math.abs(parseFloat(payback - withdraw).toFixed(2))}
               </span>{" "}

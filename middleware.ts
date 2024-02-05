@@ -43,5 +43,6 @@ export const config = {
      * Feel free to modify this pattern to include more paths.
      */
     "/search",
+    '/account'
   ],
 };

@@ -84,10 +84,10 @@ export default function Header({ email }) {
     <div className="flex flex-col gap-2 items-center">
       <ThemeProvider theme={theme}>
         <NextUIProvider>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-custompink text-center mt-20 mb-8 text-customPink">
+          <h1 className="text-5xl md:text-5xl font-bold text-custompink text-center mt-20 mb-8 text-customPink">
             Boost Your Trading
           </h1>
-          <p className="m-auto text-lg md:text-xl text-zinc-200 text-center sm:text-2xl">
+          <p className="m-auto text-xl md:text-2xl text-zinc-200 text-center sm:text-2xl">
             트레이딩의 날개를 달아줄 부스터<br></br>당연히{" "}
             <strong>거래수수료</strong>는 돌려받아야죠
           </p>
@@ -187,26 +187,27 @@ export default function Header({ email }) {
             </div>
             <div className="flex justify-center"></div>
           </div>
-          <div className="text-xs md:text-lg self-center p-0.5 text-center">
+          <div className="text-xl md:text-2xl self-center p-0.5 text-center">
             레퍼럴 코드로 가입된 OKX 계정만 조회가 가능합니다.
           </div>
           <Link href={"https://www.okx.com/join/rich20payback"}>
-            <div className="flex text-xs md:text-sm items-center justify-center p-0.5 underline font-bold text-customPink">
+            <div className="flex text-xl md:text-2xl items-center justify-center p-0.5 underline text-customPink text-center">
               수수료 페이백 계정이 아직도 없으신가요? 지금 가입하기
             </div>
           </Link>
           <div className="h-[100px]"></div>
-          <div className="text-xl text-center md:text-5xl text-customPink font-bold self-center p-0.5 ">
+          <div className="text-4xl text-center md:text-5xl text-customPink font-bold self-center p-0.5 ">
             OKX 코드 가입시
           </div>
-          <div className="text-2xl md:text-5xl font-bold self-center p-0.5">
-            <p className="text-xl text-center md:text-5xl text-white">
-              <span className="text-customPink">수수료 페이백</span>과 평생 무료
-              지표
-            </p>
+          <div className="text-4xl md:text-5xl font-bold self-center p-0.5">
+            
+              <p className="text-customPink text-center">수수료 페이백과</p>
+              <p className="text-center">평생 무료 지표</p>
+              
+            
           </div>
-          <div className="flex flex-col mt-5 justify-center">
-            <div className="flex justify-center text-md md:text-2xl p-0.5 ">
+          <div className="flex flex-col mt-5 justify-center text-xl">
+            <div className="flex justify-center md:text-2xl p-0.5 ">
               <p className="text-center">트레이딩뷰 계정만 있다면</p>
             </div>
             <div className="flex text-md md:text-2xl self-center  p-0.5 text-center ">
@@ -224,7 +225,7 @@ export default function Header({ email }) {
           <div className="flex justify-center my-10">
             <Link href="https://www.youtube.com/watch?v=PGjkxG_RN5A&t=16s">
               {/* <Button>자동매매 설정가이드</Button> */}
-              <button className="bg-[rgb(255,0,155)] text-white font-bold py-2 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
+              <button className="bg-[rgb(255,0,155)] text-xl md:text-2xl text-white font-bold py-2 px-4 border border-transparent hover:bg-black hover:border-[rgb(255,0,155)] rounded-lg">
                 자동매매 설정가이드
               </button>
             </Link>
@@ -232,15 +233,15 @@ export default function Header({ email }) {
           <div className="flex justify-center">
             <Cards></Cards>
           </div>
-          <div className="self-center mt-6  p-0.5 text-center">
+          <div className="self-center text-xl md:text-2xl mt-6  p-0.5 text-center">
             OKX 거래소에서 운용이 되지 않을 경우, 스크립트 초대가 취소될 수
             있습니다.
           </div>
 
-          <div className="text-center text-customPink text-2xl md:text-5xl font-bold mt-20 self-center p-0.5 ">
+          <div className="text-center text-customPink text-xl md:text-5xl font-bold mt-20 self-center p-0.5 ">
             월 구독제 유료 지표
           </div>
-          <div className="text-2xl md:text-5xl font-bold self-center p-0.5 text-center">
+          <div className="text-xl md:text-5xl font-bold self-center p-0.5 text-center">
             별도 문의
           </div>
           <div className="h-[100px] md:h-[200px]"></div>

@@ -69,7 +69,7 @@ export default async function Index() {
         </main> */}
       </div>
 
-      <footer className="w-full p-8 flex justify-center text-center text-xs">
+      <footer className="w-full text-md p-8 flex justify-center text-center">
         <p>copyright © 2024 | Richkidskorean | All Right Reserved</p>
       </footer>
     </div>

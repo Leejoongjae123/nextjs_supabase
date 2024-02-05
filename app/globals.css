@@ -20,10 +20,23 @@
   }
 }
 
+@font-face {
+  font-family: 'NEXON Lv2 Gothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+
 @layer base {
   * {
     /* @apply border-foreground/20; */
   }
+}
+
+body{
+	font-family: 'NEXON Lv2 Gothic'
 }
 
 .animate-in {
