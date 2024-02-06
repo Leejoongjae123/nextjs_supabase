@@ -102,8 +102,8 @@ function Payback({ okxuid,email }) {
         </h1>
         <div className="flex justify-center mt-3">
           {isComplete ? (
-            <p className="text-3xl">
-              <span className="underline font-bold">{payback}</span> USDT
+            <p className="text-3xl font-bold">
+              <span className="font-bold">{payback}</span> USDT
             </p>
           ) : (
             <div role="flex status">
@@ -134,8 +134,8 @@ function Payback({ okxuid,email }) {
         </h1>
         <div className="flex justify-center mt-3">
           {isComplete ? (
-            <p className="text-white text-3xl">
-              <span className="underline font-bold text-white">
+            <p className="text-white font-bold text-3xl">
+              <span className="font-bold text-white">
                 {Math.abs(parseFloat(payback - withdraw).toFixed(2))}
               </span>{" "}
               USDT

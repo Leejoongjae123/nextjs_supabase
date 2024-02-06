@@ -54,10 +54,6 @@ export default async function Search({
 
       <Payback okxuid={okxuid} email={email}></Payback>
 
-      {/* <Button onClick={()=>{
-        router.push('/complete')
-      }}>지금 출금하기</Button> */}
-
       <div className="text-center text-xs px-10 md:px-0 ">
         <p>출금은 100usdt 이상 부터 가능합니다.</p>
         <p>
