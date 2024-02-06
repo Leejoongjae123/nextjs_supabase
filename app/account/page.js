@@ -3,22 +3,21 @@ import { headers, cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import CustomButton from "../../components/CustomButton";
-export default async function Login({
-  searchParams,
-}) {  
+import { userInfo } from "os";
+
+export default async function Login({ searchParams }) {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
   const {
-    data: { user }
+    data: { user },
   } = await supabase.auth.getUser();
-  
 
   const update = await supabase
     .from("profiles")
     .select()
     .eq("email", user?.email);
 
-    const okxuid = update?.data[0]?.okxuid;
+  const okxuid = update?.data[0]?.okxuid;
 
   const changeProfile = async (formData) => {
     "use server";
@@ -28,29 +27,22 @@ export default async function Login({
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
 
-    try {
-      const data = await supabase
-        .from("profiles")
-        .update({
-          okxuid: okxuid,
-        })
-        .eq("email", email);
+    
+    const  data = await supabase
+    .from('profiles')
+    .update({ okxuid: okxuid })
+    .eq('email', user?.email)
 
-      if (!data.error) {
-        console.log("업데이트성공");
-        console.log(data)
-      } else {
-        console.log("업데이트실패");
-      }
-      console.log('error:',error)
-    } catch (error) {
-      console.log("error:", error);
+    if (data.error) {
+      return redirect("/");
     }
+    return redirect("/");
+      
+    
   };
-  
-  console.log('userinfo:',user)
-  console.log('okxuid:',okxuid)
-  
+
+  console.log("userinfo:", user);
+  console.log("okxuid:", okxuid);
 
   return (
     <div className="animate-in flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 ">
@@ -67,7 +59,6 @@ export default async function Login({
           placeholder="you@example.com"
           value={user?.email}
           disabled
-          
         />
         <label className="text-md text-white" htmlFor="password">
           UID
@@ -77,7 +68,6 @@ export default async function Login({
           type="okxuid"
           name="okxuid"
           placeholder="UID"
-          
           defaultValue={okxuid}
           required
         />
