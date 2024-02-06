@@ -5,51 +5,7 @@ import { redirect } from "next/navigation";
 import CustomButton from "../../components/CustomButton";
 export default async function Login({
   searchParams,
-}) {
-
-  const signIn = async (formData) => {
-    "use server";
-
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const cookieStore = cookies();
-    const supabase = createClient(cookieStore);
-
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      return redirect("/login?message=Could not authenticate user");
-    }
-
-    return redirect("/");
-  };
-
-  const signUp = async (formData) => {
-    "use server";
-
-    const origin = headers().get("origin");
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const cookieStore = cookies();
-    const supabase = createClient(cookieStore);
-
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${origin}/auth/callback`,
-      },
-    });
-
-    if (error) {
-      return redirect("/login?message=Could not authenticate user");
-    }
-
-    return redirect("/login?message=Check email to continue sign in process");
-  };
+}) {  
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
   const {
@@ -68,20 +24,28 @@ export default async function Login({
     "use server";
 
     const email = formData.get("email");
-    const password = formData.get("password");
+    const okxuid = formData.get("okxuid");
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    try {
+      const data = await supabase
+        .from("profiles")
+        .update({
+          okxuid: okxuid,
+        })
+        .eq("email", email);
 
-    if (error) {
-      return redirect("/login?message=Could not authenticate user");
+      if (!data.error) {
+        console.log("업데이트성공");
+        console.log(data)
+      } else {
+        console.log("업데이트실패");
+      }
+      console.log('error:',error)
+    } catch (error) {
+      console.log("error:", error);
     }
-
-    return redirect("/");
   };
   
   console.log('userinfo:',user)

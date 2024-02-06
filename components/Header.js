@@ -84,7 +84,7 @@ export default function Header({ email }) {
     <div className="flex flex-col gap-2 items-center">
       <ThemeProvider theme={theme}>
         <NextUIProvider>
-          <h1 className="text-5xl md:text-5xl font-bold text-custompink text-center mt-20 mb-8 text-customPink">
+          <h1 className="text-4xl md:text-5xl font-bold text-custompink text-center mt-20 mb-8 text-customPink">
             Boost Your Trading
           </h1>
           <p className="m-auto text-xl md:text-2xl text-zinc-200 text-center sm:text-2xl">
@@ -244,7 +244,7 @@ export default function Header({ email }) {
           <div className="text-xl md:text-5xl font-bold self-center p-0.5 text-center">
             별도 문의
           </div>
-          <div className="h-[100px] md:h-[200px]"></div>
+          <div className="h-[100px] md:h-[100px]"></div>
           <Ask></Ask>
         </NextUIProvider>
       </ThemeProvider>
