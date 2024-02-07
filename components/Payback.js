@@ -35,7 +35,7 @@ function Payback({ okxuid, email }) {
       .select()
       .eq("okxuid", okxuid);
 
-    const history = historyList?.data[0]?.totalcommission;
+    const history = historyList?.data[0]?.totalcommission??null
 
 
     const calculateTotalPayback = () => {
