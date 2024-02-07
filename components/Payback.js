@@ -5,20 +5,21 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/utils/supabase/client";
 import Link from "next/link";
 
-function Payback({ okxuid,email }) {
+function Payback({ okxuid, email }) {
   const [payback, setPayback] = useState(null);
   const [isComplete, setIsComplete] = useState(false);
   const [profile, setProfile] = useState();
   const [coeff, setCoeff] = useState(1);
   const [possible, setPossible] = useState(false);
   const [withdraw, setWithdraw] = useState(null);
+  const [history, setHistory] = useState(null);
   const [rest, setRest] = useState(0);
   const fetchData = async () => {
     const profile = await supabase
       .from("profiles")
       .select()
       .eq("okxuid", okxuid)
-      .eq("email", email)
+      .eq("email", email);
     setProfile(profile?.data[0]?.checkbox);
 
     const coeffData = await supabase.from("coeff").select();
@@ -29,8 +30,16 @@ function Payback({ okxuid,email }) {
       .select()
       .eq("okxuid", okxuid);
 
+    const historyList = await supabase
+      .from("history")
+      .select()
+      .eq("okxuid", okxuid);
+
+    const history = historyList?.data[0]?.totalcommission;
+
+
     const calculateTotalPayback = () => {
-      return withdrawList.data.reduce(
+      return withdrawList?.data?.reduce(
         (total, item) => total + item.reqPayback,
         0
       );
@@ -51,11 +60,13 @@ function Payback({ okxuid,email }) {
     );
 
     let coeff = 0;
-    console.log('test:',coeffData.data, profile?.data[0]?.checkbox)
+    console.log("test:", coeffData.data, profile?.data[0]?.checkbox);
     coeff = findCoeffByCheckbox(coeffData.data, profile?.data[0]?.checkbox);
-    const result = parseFloat(
-      response.data?.result?.data[0]?.totalCommission * coeff
-    ).toFixed(2);
+
+    const firstTc = response.data?.result?.data[0]?.totalCommission;
+    console.log("firstTc:", firstTc);
+    console.log("history:", history);
+    const result = parseFloat((firstTc - history) * coeff).toFixed(2);
     setPayback(result);
     const restPayback = parseFloat(result) - parseFloat(calculateTotalPayback);
     setRest(calculateTotalPayback);
@@ -97,9 +108,7 @@ function Payback({ okxuid,email }) {
   return (
     <>
       <div className=" w-2/3 md:w-1/4 flex-col py-10 bg-white  text-black text-center rounded-2xl">
-        <h1 className=" text-3xl md:text-3xl">
-          누적 페이백
-        </h1>
+        <h1 className=" text-3xl md:text-3xl">누적 페이백</h1>
         <div className="flex justify-center mt-3">
           {isComplete ? (
             <p className="text-3xl">
@@ -129,14 +138,15 @@ function Payback({ okxuid,email }) {
         </div>
       </div>
       <div className="w-2/3 md:w-1/4 flex-col py-10  text-black text-center rounded-2xl bg-[rgb(255,0,155)]">
-        <h1 className="text-white text-3xl md:text-3xl">
-          출금가능 페이백
-        </h1>
+        <h1 className="text-white text-3xl md:text-3xl">출금가능 페이백</h1>
         <div className="flex justify-center mt-3">
           {isComplete ? (
             <p className="text-white text-3xl">
               <span className="font-bold text-white">
-                {Math.abs(parseFloat(payback - withdraw).toFixed(2))}
+                {/* {parseFloat(payback - withdraw).toFixed(2)} */}
+                {parseFloat(payback - withdraw) < 0
+                  ? "0.00"
+                  : parseFloat(payback - withdraw).toFixed(2)}
               </span>{" "}
               USDT
             </p>

@@ -119,8 +119,7 @@ export default function Login({
             htmlFor="checkbox"
             className="ml-2 text-md text-red-500 font-bold"
           >
-            자동매매 지표(플랜1,RSI자동매매봇 해당)를 무료로 이용할 경우 수수료페이백은 35% 적용됩니다.”
-그 외 수수료페이백만 이용할 경우 55% 제공. (변경 불가, OKX만 해당)
+            무료 자동매매 지표를 이용하시겠습니까?
           </label>
         </div>
         <CustomButton title={"회원가입"}></CustomButton>
