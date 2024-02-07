@@ -10,6 +10,26 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Checkbox from "../../components/Checkbox";
 import CustomButton from "@/components/CustomButton";
 
+export const metadata = {
+  icons:{
+    icon:'images/icon.png'
+  },
+  title: '트레이딩 부스터! 차트지표와 페이백을 동시에',
+  openGraph: {
+    title: '트레이딩 부스터! 차트지표와 페이백을 동시에',
+    url: 'https://www.tradingboost.io/',
+    siteName: 'https://www.tradingboost.io/',
+    images: [
+      {
+        url: 'https://wpcdjihluvirgbyqussd.supabase.co/storage/v1/object/public/images/ogImage.png', // Must be an absolute URL
+        width: 800,
+        height: 600,
+      }
+    ],
+    locale: 'ko_Kr',
+    type: 'website',
+  },
+}
 
 export default function Login({
   searchParams,

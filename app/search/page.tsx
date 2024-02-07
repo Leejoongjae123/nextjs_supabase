@@ -10,6 +10,26 @@ import { useState, useEffect } from "react";
 import { cookies } from "next/headers";
 import Payback from "../../components/Payback";
 
+export const metadata = {
+  icons:{
+    icon:'images/icon.png'
+  },
+  title: '트레이딩 부스터! 차트지표와 페이백을 동시에',
+  openGraph: {
+    title: '트레이딩 부스터! 차트지표와 페이백을 동시에',
+    url: 'https://www.tradingboost.io/',
+    siteName: 'https://www.tradingboost.io/',
+    images: [
+      {
+        url: 'https://wpcdjihluvirgbyqussd.supabase.co/storage/v1/object/public/images/ogImage.png', // Must be an absolute URL
+        width: 800,
+        height: 600,
+      }
+    ],
+    locale: 'ko_Kr',
+    type: 'website',
+  },
+}
 
 // 사용자 지정 색상 정의
 const customPink = "rgb(255, 0, 155)";
