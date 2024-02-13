@@ -217,7 +217,7 @@ export default function Header({ email }) {
             </div>
             <div className="flex text-md md:text-2xl self-center  p-0.5 ">
               <p>
-                <strong>재동매매 전략</strong>을 구축할 수 있습니다.
+                <strong>자동매매 전략</strong>을 구축할 수 있습니다.
               </p>
             </div>
           </div>
