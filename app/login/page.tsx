@@ -121,13 +121,14 @@ export default function Login({
           </p>
         )}
       </form>
-      <div className="w-full">
+      {/*<div className="w-full">
         <Link href={"/signup"}>
           <button className="text-custom-pink border border-foreground/20 rounded-md px-4 py-2 w-full border-none underline">
             회원가입
           </button>
         </Link>
       </div>
+        */}
     </div>
   );
 }
